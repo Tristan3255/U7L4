@@ -73,6 +73,81 @@ public class ArrayListAlgorithms
      *  @param intList  original arraylist of Integers
      *  @return  the index at which the minimum value occurs
      */
-    public static int indexOfMinimum(ArrayList<Integer> intList)
-    { /* implement this method! */ }
+    public static int indexOfMinimum(ArrayList<Integer> intList) {
+        int min = intList.get(0);
+        for (Integer i: intList){
+            if(min > i){
+                min = i;
+            }
+        }
+        int index = 0;
+        for (Integer x: intList){
+            if(min == x){
+                index =  intList.indexOf(x);
+            }
+        }
+        return index;
+    }
+
+    /** Returns true if two array lists of the same length contain the exact
+     *  same elements in the same order (i.e. the two arraylists are identical).
+     *  Returns false otherwise.
+     *
+     *  Does NOT mutate (modify) elements in either arraylist
+     *  PRECONDITION: numList1.size() == numList2.size()
+     *
+     *  @param numList1  first arraylist of Integers
+     *  @param numList2  second arraylist of Integers, has the same size a first
+     *  @return  true if both arraylists are identical, element for element
+     */
+    public static boolean areIdentical(ArrayList<Integer> numList1, ArrayList<Integer> numList2) {
+        for(int i = 0; i < numList1.size(); i++){
+            if(numList1.get(i) != numList2.get(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /** Removes all elements from numList that are ODD Integers.
+     *
+     *  DOES mutate (modify) elements in numList
+     *  PRECONDITION: numList1.size() > 0
+     *
+     *  @param numList1  arraylist of Integers
+     */
+    public static void removeOdds(ArrayList<Integer> numList) {
+        for(int i = 0; i < numList.size(); i++){
+            if(numList.get(i) % 2 != 0){
+                numList.remove(i);
+                i--;
+            }
+        }
+    }
+
+    /** Removes all elements from wordList that contain an a, e, i , and/or o.
+     *  All other words (i.e. those that have u and/or y as the vowel
+     *  such as "ugh" o    public static void wackyVowels(ArrayList<String> wordList) {
+     *         for(int i = 0; i < wordList.size(); i++){
+     *             String element = wordList.get(i);
+     *             if((wordList.get(i).contains("a")||wordList.get(i).contains("e"))||(wordList.get(i).contains("i")||wordList.get(i).contains("o"))){
+     *                 wordList.remove(i);
+     *                 i--;
+     *             }
+     *             else{
+     *                 wordList.add(i, element);
+     *                 i++;
+     *             }
+     *         }
+     *     }r "sly", or no vowels, like "psh"), add a duplicate of
+     *  that element to wordList at an adjacent index.
+     *
+     *  Assume all words have lowercase letters (i.e. no need to check for case)
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITION: wordList.size() > 0
+     *
+     *  @param wordList  arraylist of Strings
+     */
+
 }
