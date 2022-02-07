@@ -127,19 +127,7 @@ public class ArrayListAlgorithms
 
     /** Removes all elements from wordList that contain an a, e, i , and/or o.
      *  All other words (i.e. those that have u and/or y as the vowel
-     *  such as "ugh" o    public static void wackyVowels(ArrayList<String> wordList) {
-     *         for(int i = 0; i < wordList.size(); i++){
-     *             String element = wordList.get(i);
-     *             if((wordList.get(i).contains("a")||wordList.get(i).contains("e"))||(wordList.get(i).contains("i")||wordList.get(i).contains("o"))){
-     *                 wordList.remove(i);
-     *                 i--;
-     *             }
-     *             else{
-     *                 wordList.add(i, element);
-     *                 i++;
-     *             }
-     *         }
-     *     }r "sly", or no vowels, like "psh"), add a duplicate of
+     *  such as "ugh" or "sly", or no vowels, like "psh"), add a duplicate of
      *  that element to wordList at an adjacent index.
      *
      *  Assume all words have lowercase letters (i.e. no need to check for case)
@@ -149,5 +137,17 @@ public class ArrayListAlgorithms
      *
      *  @param wordList  arraylist of Strings
      */
-
+    public static void wackyVowels(ArrayList<String> wordList) {
+        for(int i = 0; i < wordList.size(); i++){
+            String element = wordList.get(i);
+            if((wordList.get(i).contains("a")||wordList.get(i).contains("e"))||(wordList.get(i).contains("i")||wordList.get(i).contains("o"))){
+                wordList.remove(i);
+                i--;
+            }
+            else{
+                wordList.add(i, element);
+                i++;
+            }
+        }
+    }
 }
