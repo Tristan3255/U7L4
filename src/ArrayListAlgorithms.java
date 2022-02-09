@@ -299,20 +299,51 @@ public class ArrayListAlgorithms {
      */
     public static ArrayList<Integer> modes(int[] numList) {
         ArrayList<Integer> modeList = new ArrayList<Integer>();
-
         int maxMode = 0;
         int mode = 0;
         int count = 0;
-        for(int i = 0; i < numList.length; i++){
-            for(int j = i + 1; j < numList.length; j++){
-                if(numList[i] == numList[j]){
+        for(int i = 0; i < numList.length; i++) {
+            count = 0;
+            for(int x = 0; x < numList.length; x++) {
+                if(numList[x] == numList[i]) {
                   count++;
                 }
             }
+            mode = count;
+
+            if(mode > maxMode) {
+                maxMode = mode;
+            }
 
         }
-        if(mode > maxMode){
-            maxMode = mode;
+
+        for(int i = 0; i < numList.length; i++) {
+            count = 0;{
+                for (int x = 0; x < numList.length; x++) {
+                    if (numList[x] == numList[i]) {
+                        count++;
+                    }
+                }
+            }
+
+            if(count == maxMode && count != 1) {
+                modeList.add(numList[i]);
+            }
         }
+
+
+        for(int i = 0; i < modeList.size(); i++) {
+            for(int x = 0; x < modeList.size(); x++) {
+                if(x!=i) {
+                    if(modeList.get(i) == modeList.get(x)){
+                        modeList.remove(x);
+                        x--;
+                    }
+                }
+            }
+        }
+
+        return modeList;
     }
+
 }
